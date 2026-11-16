@@ -1,0 +1,57 @@
+{
+  "name": "pdf-redaction-check",
+  "version": "0.1.0",
+  "description": "Find redactions that didn't work: text under black boxes, unapplied Redact annotations, and removed text still in a PDF's earlier versions. Library and CLI.",
+  "keywords": [
+    "pdf",
+    "redaction",
+    "redact",
+    "privacy",
+    "security",
+    "pdfjs",
+    "cli",
+    "audit"
+  ],
+  "license": "MIT",
+  "author": "alphaNumericEntity",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alphaNumericEntity/pdf-redaction-check.git"
+  },
+  "homepage": "https://github.com/alphaNumericEntity/pdf-redaction-check#readme",
+  "bugs": "https://github.com/alphaNumericEntity/pdf-redaction-check/issues",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "pdf-redaction-check": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "integration": "vitest run",
+    "prepublishOnly": "npm run typecheck && npm run integration && npm run build"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "^1.1.1",
+    "pdfjs-dist": "^6.5.438"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "pdf-lib": "^1.17.1",
+    "typescript": "^5.9.0",
+    "vitest": "^5.1.0"
+  }
+}
