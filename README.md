@@ -2,13 +2,17 @@
 
 Find redactions that didn't work.
 
+![A statement with the customer name and account number covered by black boxes, and pdf-redaction-check reporting both as still recoverable](docs/demo.png)
+
 A black rectangle drawn over text hides it on screen, but the text is still in the file: anyone can select it, copy it, or run `pdftotext`. Court filings, FOIA releases and HR documents leak this way every year. `pdf-redaction-check` opens a PDF the way an attacker would and tells you what can still be recovered.
 
 ```console
-$ npx pdf-redaction-check statement.pdf
-statement.pdf: LEAK: redacted content can still be recovered
-  page 1: text under a black box: "Account 4417 1234 5678 9113"
+$ npx pdf-redaction-check docs/statement.pdf
+docs/statement.pdf: LEAK: redacted content can still be recovered
+  page 1: text under a black box: "Jane Q Example", "4417 1234 5678 9113"
 ```
+
+[`docs/statement.pdf`](docs/statement.pdf) is the sample above, with made-up details, if you want to try it.
 
 ## What it checks
 
